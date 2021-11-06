@@ -2,6 +2,8 @@ import {useEffect,useState} from 'react'
 import tw from "tailwind-styled-components"
 import Map from './components/Map'
 import { useRouter } from 'next/router'
+import RideSelector from './components/RideSelector'
+import Link from 'next/link'
 
 const Confirm = () => {
     const router = useRouter()
@@ -15,7 +17,7 @@ const Confirm = () => {
 
     const getPickupCoordinates = (pickup) => { 
         
-        fetch ('https://api.mapbox.com/geocoding/v5/mapbox.places/${pickup}.json?'+
+        fetch (`https://api.mapbox.com/geocoding/v5/mapbox.places/${pickup}.json?`+
         
            new URLSearchParams({
             access_token:"pk.eyJ1IjoibnAxMCIsImEiOiJja3ZsbzgxYjkwbWJnMnB1cHVmZ3dqdDdsIn0.ynwoVYcwlCeTFIVGZRtl_A",
@@ -33,7 +35,7 @@ const Confirm = () => {
     function getDropoffCoordinates(dropoff) {
 
      
-        fetch('https://api.mapbox.com/geocoding/v5/mapbox.places/${dropoff}.json?' +
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${dropoff}.json?` +
 
             new URLSearchParams({
                 access_token: "pk.eyJ1IjoibnAxMCIsImEiOiJja3ZsbzgxYjkwbWJnMnB1cHVmZ3dqdDdsIn0.ynwoVYcwlCeTFIVGZRtl_A",
@@ -58,26 +60,58 @@ useEffect(()=>{
 
     return (
         <Wrapper>
+
+            <ButtonContainer>
+                <Link href = '/Search'>
+                <BackButton src= "https://img.icons8.com/ios-filled/50/000000/left.png"/>
+                </Link>
+            
+
+            </ButtonContainer>
+
+            
             <Map
             pickupCoordinates={pickupCoordinates}
             dropoffCoordinates={dropoffCoordinates}
             />
             <RideContainer> 
-                Ride Selector
-                Confirm Button
+                <RideSelector/>
+               
+                <ConfirmButtonContainer>
+                    <ConfirmButton>
+                        Confirm UberX
+                    </ConfirmButton>
+                    
+                </ConfirmButtonContainer>
                 
             </RideContainer>
+
+           
         </Wrapper>
        
     )
 }
 
 export default Confirm
+const ButtonContainer = tw.div`
+rounded-full`
+const BackButton = tw.img`
+ fixed top-4 left-4 z-50 bg-white h-12 cursor-pointer p-2 rounded-full shadow-md mr-2 transform hover:scale-105 transition cursor-pointer  `
 
+const ConfirmButton= tw.div`
+bg-black text-white  my-6 mx-6 py-4 text-center text-xl  
+`
+
+const ConfirmButtonContainer = tw.div`
+border-t-2 transform hover:scale-105 transition cursor-pointer
+
+`
 const RideContainer = tw.div`
-flex-1
+flex-1 flex flex-col h-1/2
 `
 const Wrapper = tw.div`
-flex h-screen flex-col`
+flex h-screen flex-col 
+`
+
 
 
