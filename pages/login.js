@@ -9,7 +9,7 @@ const Login = () => {
 
     const router = useRouter()
     useEffect(() => {
-        onAuthStateChanged(user=> {if (user){router.push('/')}
+        AuthStateChanged(user=> {if (user){router.push('/')}
         })
         
     }, [])
