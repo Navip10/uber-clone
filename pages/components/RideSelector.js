@@ -1,10 +1,19 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import tw from "tailwind-styled-components"
 import { carList } from '../data/carList'
 
 
+//gets ride duration from map box api
+//1. pickupCoordinates
+//2. dropoffCoordinates
+const RideSelector = ({pickupCoordinates, dropoffCoordinates}) => {
+    const[rideDuration, setRideDuration] =  useState(0)
+    useEffect(() => {
+fetch(
+    `https://api.mapbox.com/directions/v5/mapbox/driving/${pickupCoordinates[0]},${pickupCoordinates[1]};${dropoffCoordinates[0]},${dropoffCoordinates[1]}?access_token=pk.eyJ1IjoibnAxMCIsImEiOiJja3ZsbzgxYjkwbWJnMnB1cHVmZ3dqdDdsIn0.ynwoVYcwlCeTFIVGZRtl_A`
+)
 
-const RideSelector = () => {
+    }, [])
     return (
         <Wrapper>
             <Title>Choose a ride, or swipe up for more</Title>
@@ -15,8 +24,8 @@ const RideSelector = () => {
                       <CarDetails>
                           <Service>{car.service}</Service>
                           <Time>5 min away</Time>
-                          <Price>$24.00</Price>
                       </CarDetails>
+                      <Price>$24.00</Price>
                   </Car>
 
                 )) }
@@ -30,8 +39,26 @@ const RideSelector = () => {
 export default RideSelector
 
 //Veriable Declarations
+const Wrapper = tw.div`
+flex-1 overflow-y-scroll flex flex-col
+
+`
+const Title = tw.div`
+text-gray-500 text-center text-xs py-2 border-b
+`
+const Carlist = tw.div`
+flex flex-col overflow-y-scroll
+
+`
+
+const Car = tw.div`
+flex p-4 items-center`
+
+const CarImage = tw.img`
+h-14 px-3 mr-4`
 
 const CarDetails = tw.div`
+flex-1
 `
 
 const Service = tw.div`
@@ -42,22 +69,3 @@ text-xs text-blue-500`
 
 const Price = tw.div`
 text-sm`
-
-const CarImage = tw.img`
-h-14 px-4 mr-4`
-
-const Car = tw.div`
-flex p-4 items-center`
-
-const Title = tw.div`
-text-gray-500 text-center text-xs py-2 border-b
-`
-const Carlist = tw.div`
-overflow-y-scroll
-
-`
-const Wrapper = tw.div`
-flex-1 overflow-y-scroll flex flex-col
-
-`
-

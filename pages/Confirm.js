@@ -65,8 +65,7 @@ useEffect(()=>{
                 <Link href = '/Search'>
                 <BackButton src= "https://img.icons8.com/ios-filled/50/000000/left.png"/>
                 </Link>
-            
-
+        
             </ButtonContainer>
 
             
@@ -93,25 +92,29 @@ useEffect(()=>{
 }
 
 export default Confirm
-const ButtonContainer = tw.div`
-rounded-full`
-const BackButton = tw.img`
- fixed top-4 left-4 z-50 bg-white h-12 cursor-pointer p-2 rounded-full shadow-md mr-2 transform hover:scale-105 transition cursor-pointer  `
 
-const ConfirmButton= tw.div`
-bg-black text-white  my-6 mx-6 py-4 text-center text-xl  
-`
-
-const ConfirmButtonContainer = tw.div`
-border-t-2 transform hover:scale-105 transition cursor-pointer
-
-`
-const RideContainer = tw.div`
-flex-1 flex flex-col h-1/2
-`
 const Wrapper = tw.div`
 flex h-screen flex-col 
 `
+const BackButton = tw.img`
+ fixed top-4 left-4 z-50 bg-white h-12 cursor-pointer p-2 rounded-full shadow-md mr-2 transform hover:scale-105 transition cursor-pointer  `
+
+ const ConfirmButtonContainer = tw.div`
+border-t-2 transform hover:scale-105 transition cursor-pointer
+
+`
+const ConfirmButton= tw.div`
+bg-black text-white  m-6 mx-6 py-4 text-center text-xl rounded-full  
+`
+const RideContainer = tw.div`
+flex flex-1 flex-col h-1/2
+`
+const ButtonContainer = tw.div`
+`
+
+
+
+
 
 
 

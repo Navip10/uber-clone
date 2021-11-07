@@ -74,7 +74,7 @@ bg-white px-4
 `
 
 const BackButton = tw.img`
-h-12 cursor-pointer 
+bg-gray-200 h-10 transform hover:scale-105 transition rounded-full cursor-pointer p-1 top-7
 `
 const FromToIcons = tw.div`
 w-10 flex flex-col mr-2 items-center
