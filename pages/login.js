@@ -35,5 +35,5 @@ const Wrapper = tw.div`
 
 flex flex-col h-screen w=screen bg-gray-200 p-4`
 const SignInButton = tw.button`
-bg-black text-white text-center py-4 mt-8 self-center w-full rounded-full transform hover:scale-105 transition
+bg-black text-white text-center py-4 mt-8 self-center w-full rounded-full transform hover:scale-105 transition 
 `
