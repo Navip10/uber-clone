@@ -74,7 +74,7 @@ bg-white px-4
 `
 
 const BackButton = tw.img`
-bg-gray-200 h-10 transform hover:scale-105 transition rounded-full cursor-pointer p-1 top-7
+bg-gray-200 h-10 transform hover:scale-105 transition rounded-full cursor-pointer p-1 top
 `
 const FromToIcons = tw.div`
 w-10 flex flex-col mr-2 items-center
@@ -97,7 +97,7 @@ const InputBoxes = tw.div`
 flex flex-col flex-1
 `
 const Input=tw.input`
-h-10 bg-gray-200 my-2 rounded-2 p-2 outline-none border-none
+h-10 bg-gray-200 my-2 rounded-2 p-2 outline-none border-none rounded-full
 `
 const PlusIcon = tw.img`
 w-10 h-10 bg-gray-200 rounded-full ml-3
