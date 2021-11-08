@@ -62,7 +62,7 @@ useEffect(()=>{
         <Wrapper>
 
             <ButtonContainer>
-                <Link href = '/Search'>
+                <Link href = '/Search'passHref={true}>
                 <BackButton src= "https://img.icons8.com/ios-filled/50/000000/left.png"/>
                 </Link>
         
